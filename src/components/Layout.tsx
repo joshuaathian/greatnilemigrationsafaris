@@ -15,6 +15,7 @@ const links = [
   ["Gallery", "/gallery"],
   ["Contact", "/contact"],
 ];
+const logoSrc = "images/great-nile-logo.png";
 export function Layout() {
   const { data } = useData<Settings>("website_settings");
   const settings = { ...defaults, ...data[0] };
@@ -32,7 +33,10 @@ export function Layout() {
       </a>
       <header className="site-header">
         <Link className="brand" to="/">
-          THE GREAT NILE<span>MIGRATION SAFARIS</span>
+          <img className="brand-logo" src={logoSrc} alt="" />
+          <span className="brand-copy">
+            THE GREAT NILE<small>MIGRATION SAFARIS</small>
+          </span>
         </Link>
         <button
           className="menu-toggle"
@@ -59,7 +63,10 @@ export function Layout() {
       <footer>
         <div>
           <Link className="brand" to="/">
-            THE GREAT NILE<span>MIGRATION SAFARIS</span>
+            <img className="brand-logo" src={logoSrc} alt="" />
+            <span className="brand-copy">
+              THE GREAT NILE<small>MIGRATION SAFARIS</small>
+            </span>
           </Link>
           <p>{settings.short_description}</p>
           {settings.phone_number&&<p>{settings.phone_number}</p>}
